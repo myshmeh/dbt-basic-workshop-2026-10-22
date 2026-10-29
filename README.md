@@ -6,6 +6,7 @@ Try running the following commands:
 - dbt run
 - dbt test
 
+-- edit
 
 ### Resetting your development schema
 
