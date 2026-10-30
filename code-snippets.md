@@ -360,12 +360,12 @@ unit_tests:
     expect:
       rows:
         - {
-            customer_id: 1,
-            first_name: "John",
-            last_name: "Doe",
-            first_order_date: "2023-01-01",
-            most_recent_order_date: "2023-06-15",
-            number_of_orders: 2
+            customer_id: , -- TODO
+            first_name: , -- TODO
+            last_name: , -- TODO
+            first_order_date: "", -- TODO
+            most_recent_order_date: "", -- TODO
+            number_of_orders: -- TODO
           }
           
   - name: test_customers_defaults_to_zero_orders_when_no_orders_exist
@@ -379,12 +379,12 @@ unit_tests:
     expect:
       rows:
         - {
-            customer_id: 1,
-            first_name: "Jane",
-            last_name: "Smith",
-            first_order_date: null,
-            most_recent_order_date: null,
-            number_of_orders: 0
+            customer_id: , -- TODO
+            first_name: "", -- TODO
+            last_name: "", -- TODO
+            first_order_date: , -- TODO
+            most_recent_order_date: , -- TODO
+            number_of_orders: -- TODO
           }
 ```
 
