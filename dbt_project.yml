@@ -39,3 +39,6 @@ models:
   jaffle_shop:
     +static_analysis: strict
     +materialized: table
+
+info_schema:
+  version: 1

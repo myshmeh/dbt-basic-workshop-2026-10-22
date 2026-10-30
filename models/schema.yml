@@ -23,3 +23,29 @@ models:
         description: 最新の注文日。NULLは顧客がまだ注文したことがないことを示す
       - name: number_of_orders
         description: 顧客の累計注文件数。注文がない場合は0
+
+
+
+unit_tests:
+  - name: test_customers_aggregates_orders_for_existing_customer
+    model: customers
+    config:
+      compute: local
+    given:
+      - input: ref('stg_customers')
+        rows:
+          - {customer_id: 1, first_name: "John", last_name: "Doe"}
+      - input: ref('stg_orders')
+        rows:
+          - {order_id: 1, customer_id: 1, order_date: "2023-01-01"}
+          - {order_id: 2, customer_id: 1, order_date: "2023-06-15"}
+    expect:
+      rows:
+        - {
+            customer_id: 1,
+            first_name: "John",
+            last_name: Doe,
+            first_order_date: "2023-01-01",
+            most_recent_order_date: "2023-06-15",
+            number_of_orders: 2
+          }
